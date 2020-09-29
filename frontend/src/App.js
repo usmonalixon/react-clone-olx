@@ -1,6 +1,8 @@
 import React from "react";
 import "./App.css";
-import data from "./data";
+import { BrowserRouter, Route, Link } from "react-router-dom";
+import HomeScreen from "./screens/HomeScreen";
+import Ads from "./components/Ads";
 
 function App() {
   const openMenu = () => {
@@ -10,53 +12,42 @@ function App() {
     document.querySelector(".sidebar").classList.remove("open");
   };
   return (
-    <div className="grid-container">
-      <div className="header">
-        <div className="brand">
-          <button onClick={openMenu}>&#9776;</button>
-          <a href="/">OLX</a>
+    <BrowserRouter>
+      <div className="grid-container">
+        <div className="header">
+          <div className="brand">
+            <button onClick={openMenu}>&#9776;</button>
+            <Link to="/">OLX</Link>
+          </div>
+          <div className="header-links">
+            <Link to="/signin">Tizimga Kirish</Link>
+            <Link to="/register">Ro'yhatdan o'tish</Link>
+            <Link to="/cart">Savat</Link>
+          </div>
         </div>
-        <div className="header-links">
-          <a href="/signin">Tizimga Kirish</a>
-          <a href="/register">Ro'yhatdan o'tish</a>
-          <a href="/cart">Savat</a>
-        </div>
-      </div>
-      <aside className="sidebar">
-        <h3>Shopping Categories</h3>
-        <button className="sidebar-close-button" onClick={closeMenu}>
-          x
-        </button>
-        <ul className="categories">
-          <li>
-            <a hrefto="/category/Pants">Pants</a>
-          </li>
+        <aside className="sidebar">
+          <h3>Shopping Categories</h3>
+          <button className="sidebar-close-button" onClick={closeMenu}>
+            x
+          </button>
+          <ul className="categories">
+            <li>
+              <Link to="/category/Pants">Pants</Link>
+            </li>
 
-          <li>
-            <a href="/category/Shirts">Shirts</a>
-          </li>
-        </ul>
-      </aside>
-      <div className="main">
-        <div className="content">
-          <ul className="ads">
-            {data.products.map((product) => (
-              <li>
-                <div className="ad">
-                  <img className="ad-image" src={product.image} alt="ad"></img>
-                  <div className="ad-name">
-                    <a href="product.html">{product.name}</a>
-                  </div>
-                  <div className="ad-sort">{product.sort}</div>
-                  <div className="ad-price">{product.price}</div>
-                </div>
-              </li>
-            ))}
+            <li>
+              <Link to="/category/Shirts">Shirts</Link>
+            </li>
           </ul>
+        </aside>
+        <div className="main">
+          <div className="content">
+            <Route path="/" exact={true} component={HomeScreen} />
+          </div>
         </div>
+        <div className="footer">All Rights Reserved</div>
       </div>
-      <div className="footer">All Rights Reserved</div>
-    </div>
+    </BrowserRouter>
   );
 }
 
