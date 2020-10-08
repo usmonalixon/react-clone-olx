@@ -2,21 +2,23 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Fade from 'react-reveal/Fade';
+import { useDispatch, useSelector } from "react-redux";
+import { listAds } from "../actions/adActions";
 
 function HomeScreen(props) {
-  const [ads, setAd] = useState([]);
 
+  const adList = useSelector(state => state.adList);
+  const {ads,loading,error} = adList;
+  const dispatch = useDispatch();
   useEffect(() => {
-    const fetchData = async () => {
-      const { data } = await axios.get("/api/ads");
-      setAd(data);
-    };
-    fetchData();
+    dispatch(listAds())
+
     return () => {
       //
     };
   }, []);
-  return (
+  return loading ? <div>Loading...</div>:
+  error? <div>{error}</div>:
     <Fade cascade bottom>
       <ul className="ads">
         {ads.map((ad) => (
@@ -35,6 +37,5 @@ function HomeScreen(props) {
         ))}
       </ul>
     </Fade>
-  );
 }
 export default HomeScreen;

@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import { BrowserRouter, Route, Link } from "react-router-dom";
 import HomeScreen from "./screens/HomeScreen";
-import AdsScreen from "./screens/AdsScreen";
+import AdScreen from "./screens/AdsScreen";
 
 function App() {
   const openMenu = () => {
@@ -43,7 +43,7 @@ function App() {
         <main className="main">
           <div className="content">
             <Route path="/" exact={true} component={HomeScreen} />
-            <Route path="/ad/:id" component={AdsScreen} />
+            <Route path="/ad/:id" component={AdScreen} />
           </div>
         </main>
         <footer className="footer">
