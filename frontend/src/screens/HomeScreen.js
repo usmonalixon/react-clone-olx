@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, {  useEffect } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import Fade from 'react-reveal/Fade';
 import { useDispatch, useSelector } from "react-redux";
 import { listAds } from "../actions/adActions";
@@ -22,7 +21,7 @@ function HomeScreen(props) {
     <Fade cascade bottom>
       <ul className="ads">
         {ads.map((ad) => (
-          <li>
+          <li key={ad._id}>
             <div className="ad">
               <Link to={"/ad/" + ad._id}>
                 <img className="ad-image" src={ad.image} alt="ad" />
