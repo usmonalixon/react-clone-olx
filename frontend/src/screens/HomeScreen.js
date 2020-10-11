@@ -1,6 +1,6 @@
 import React, {  useEffect } from "react";
 import { Link } from "react-router-dom";
-import Fade from 'react-reveal/Fade';
+import Zoom from 'react-reveal/Zoom';
 import { useDispatch, useSelector } from "react-redux";
 import { listAds } from "../actions/adActions";
 
@@ -18,7 +18,7 @@ function HomeScreen(props) {
   }, []);
   return loading ? <div>Loading...</div>:
   error? <div>{error}</div>:
-    <Fade cascade bottom>
+    <Zoom cascade bottom>
       <ul className="ads">
         {ads.map((ad) => (
           <li key={ad._id}>
@@ -35,6 +35,6 @@ function HomeScreen(props) {
           </li>
         ))}
       </ul>
-    </Fade>
+    </Zoom>
 }
 export default HomeScreen;
