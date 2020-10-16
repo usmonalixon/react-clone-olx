@@ -36,3 +36,7 @@ frontend/yarn-lock.json
 frontend/package-lock.json
 frontend/debug.log
 frontend/debug.log
+secret.txt
+.gitignore
+secret true.txt
+secret false.txt

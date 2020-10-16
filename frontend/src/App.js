@@ -5,12 +5,14 @@ import HomeScreen from "./screens/HomeScreen";
 import AdScreen from "./screens/AdScreen";
 import SigninScreen from "./screens/SigninScreen";
 import { useSelector } from "react-redux";
+import Zoom from "react-reveal/Zoom";
 import RegisterScreen from "./screens/RegisterScreen";
+import AdsScreen from "./screens/AdsScreen";
+
 
 function App() {
-
-  const userSignin = useSelector(state=>state.userSignin);
-  const {userInfo} = userSignin;
+  const userSignin = useSelector((state) => state.userSignin);
+  const { userInfo } = userSignin;
 
   const openMenu = () => {
     document.querySelector(".sidebar").classList.add("open");
@@ -18,6 +20,7 @@ function App() {
   const closeMenu = () => {
     document.querySelector(".sidebar").classList.remove("open");
   };
+
   return (
     <BrowserRouter>
       <div className="grid-container">
@@ -27,12 +30,13 @@ function App() {
             <Link to="/">OLX</Link>
           </div>
           <div className="header-links">
-            TEL: 909900290
-            {
-              userInfo ? <Link to="/profile">{userInfo.name}</Link>:
-              <Link to="/signin">Tizimga Kirish</Link>
-            }
-            <Link to="/register">Ro'yhatdan o'tish</Link>
+            {userInfo ? (
+              <Link to="/profile">{userInfo.name}</Link>
+            ) : (
+              <Link to="/signin">Kirish</Link>
+            )}
+
+            {!userInfo ? <Link to="/register">Registratsiya</Link> : ""}
           </div>
         </header>
         <aside className="sidebar">
@@ -42,10 +46,11 @@ function App() {
           </button>
           <ul className="categories">
             <li>
-              <Link to="/category/1-xonalik">Pants</Link>
+              <Link to="/category/Pants">Pants</Link>
             </li>
+
             <li>
-              <Link to="/category/2-xonalik">Shirts</Link>
+              <Link to="/category/Shirts">Shirts</Link>
             </li>
           </ul>
         </aside>
@@ -53,6 +58,7 @@ function App() {
           <div className="content">
             <Route path="/register" component={RegisterScreen} />
             <Route path="/signin" component={SigninScreen} />
+            <Route path="/ads" component={AdsScreen} />
             <Route path="/" exact={true} component={HomeScreen} />
             <Route path="/ad/:id" component={AdScreen} />
           </div>

@@ -18,7 +18,7 @@ function HomeScreen(props) {
   }, []);
   return loading ? <div>Loading...</div>:
   error? <div>{error}</div>:
-    <Zoom cascade bottom>
+
       <ul className="ads">
         {ads.map((ad) => (
           <li key={ad._id}>
@@ -35,6 +35,5 @@ function HomeScreen(props) {
           </li>
         ))}
       </ul>
-    </Zoom>
 }
 export default HomeScreen;
