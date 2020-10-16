@@ -1,6 +1,11 @@
 export const AD_LIST_REQUEST = 'AD_LIST_REQUEST';
 export const AD_LIST_SUCCESS = 'AD_LIST_SUCCESS';
 export const AD_LIST_FAIL = 'AD_LIST_FAIL';
+
 export const AD_DETAILS_REQUEST = 'AD_DETAILS_REQUEST';
 export const AD_DETAILS_SUCCESS = 'AD_DETAILS_SUCCESS';
 export const AD_DETAILS_FAIL = 'AD_DETAILS_FAIL'
+
+export const AD_SAVE_REQUEST = 'AD_SAVE_REQUEST';
+export const AD_SAVE_SUCCESS = 'AD_SAVE_SUCCESS';
+export const AD_SAVE_FAIL = 'AD_SAVE_FAIL'
