@@ -1,7 +1,7 @@
-export default  {
+export default {
   ads: [
     {
-      _id: '1',
+      _id: "1",
       image: "/images/d1.jpg",
       name: "1 Xonalik Novostroyka",
       title: "1 Xonalik Novostroyka",
@@ -10,7 +10,7 @@ export default  {
       price: "1000000 so'm",
     },
     {
-      _id: '2',
+      _id: "2",
       name: "1 Xonalik Novostroyka",
       title: "1 Xonalik Novostroyka",
       description: "1 Xonalik Novostroykalar Tel:+998909900290",
@@ -19,7 +19,7 @@ export default  {
       price: "1000000 so'm",
     },
     {
-      _id: '3',
+      _id: "3",
       name: "1 Xonalik Novostroyka",
       title: "1 Xonalik Novostroyka",
       description: "1 Xonalik Novostroykalar Tel:+998909900290",
@@ -28,7 +28,7 @@ export default  {
       price: "1000000 so'm",
     },
     {
-      _id: '4',
+      _id: "4",
       name: "1 Xonalik Novostroyka",
       title: "1 Xonalik Novostroyka",
       description: "1 Xonalik Novostroykalar Tel:+998909900290",
@@ -37,7 +37,7 @@ export default  {
       price: "1000000 so'm",
     },
     {
-      _id: '5',
+      _id: "5",
       name: "1 Xonalik Novostroyka",
       title: "1 Xonalik Novostroyka",
       description: "1 Xonalik Novostroykalar Tel:+998909900290",
@@ -46,7 +46,7 @@ export default  {
       price: "1000000 so'm",
     },
     {
-      _id: '6',
+      _id: "6",
       name: "1 Xonalik Novostroyka",
       title: "1 Xonalik Novostroyka",
       description: "1 Xonalik Novostroykalar Tel:+998909900290",
@@ -55,7 +55,7 @@ export default  {
       price: "1000000 so'm",
     },
     {
-      _id: '7',
+      _id: "7",
       image: "/images/d1.jpg",
       name: "1 Xonalik Novostroyka",
       title: "1 Xonalik Novostroyka",
@@ -91,7 +91,7 @@ export default  {
       price: "1000000 so'm",
     },
     {
-      _id: '11',
+      _id: "11",
       name: "1 Xonalik Novostroyka",
       title: "1 Xonalik Novostroyka",
       description: "1 Xonalik Novostroykalar Tel:+998909900290",

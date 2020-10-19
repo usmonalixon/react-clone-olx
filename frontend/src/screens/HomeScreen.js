@@ -30,7 +30,7 @@ function HomeScreen(props) {
                 <Link to={"/ad/" + ad._id}>{ad.name}</Link>
               </div>
               <div className="ad-sort">{ad.sort}</div>
-              <div className="ad-price">${ad.price}</div>
+              <div className="ad-price">{ad.price + '  so\'m'}</div>
             </div>
           </li>
         ))}

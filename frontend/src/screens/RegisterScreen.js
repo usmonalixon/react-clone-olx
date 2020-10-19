@@ -10,12 +10,15 @@ function RegisterScreen(props) {
   const [password, setPassword] = useState("");
   const [rePassword, setRePassword] = useState("");
   const userRegister = useSelector((state) => state.userRegister);
-  const { loading, userInfo, error } = userRegister;
+  const { loading, userInfo, success, error } = userRegister;
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (userInfo) {
       props.history.push("/");
+    }
+    if (success) {
+      alert("Siz OLXda muvaffaqiyatli akkaunt yaratdingiz!");
     }
     return () => {
       //

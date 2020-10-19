@@ -55,7 +55,8 @@ a {
 }
 
 .back{
-  padding: 0.5rem;
+  padding-bottom: 0rem;
+  font-size: 1.7rem;
   margin: 0.9rem;
 }
 .back:hover{
@@ -174,6 +175,12 @@ textarea {
   max-width: 73rem;
   width: 100%;
 }
+.margin-top{
+  margin-top: 1.5rem;
+}
+.margin-left{
+  margin-left: 2rem;
+}
 .details-info {
   flex: 1 1 30rem;
 }
@@ -196,8 +203,9 @@ textarea {
 .details-action {
   border: 0.1rem #808080 solid;
   border-radius: 0.5rem;
-  background-color: #f8f8f8;
+  background-color: #f9f9f9;
   padding: 3rem;
+  margin-top: 15rem;
   margin: 5rem;
 }
 .details-description{
@@ -282,4 +290,23 @@ input {
 .categories a:hover {
   background: #ffffff;
   color: #000000;
+}
+/* Ads */
+
+.ad-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.content-margined{
+  margin: 1rem;
+}
+.table{
+  width: 100%;
+}
+th{
+  text-align: left;
+}
+tbody>tr:nth-child(odd){
+  background-color: #f0f0f0;
 }

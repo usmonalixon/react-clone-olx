@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Fade from "react-reveal/Fade";
-import Zoom from "react-reveal/Zoom";
 import Bounce from 'react-reveal/Bounce';
 import { useDispatch, useSelector } from "react-redux";
 import { signin } from "../actions/userActions";

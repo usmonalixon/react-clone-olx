@@ -22,8 +22,10 @@ function AdScreen(props) {
       <Fade cascade top>
         <Zoom>
           <button className="button primary back">
-            <Link to="/">
-               <span className="back"><i class="fas fa-chevron-left"></i> Orqaga qaytish</span>
+            <Link className="back" to="/">
+              <span className="back">
+                <i className="fas fa-chevron-left"></i> Orqaga qaytish
+              </span>
             </Link>
           </button>
           {loading ? (
@@ -41,11 +43,6 @@ function AdScreen(props) {
                     <h1>{ad.name}</h1>
                   </li>
                   <li>
-                    <div className="button primary">
-                      Narx: {ad.price}
-                    </div>
-                  </li>
-                  <li>
                     <div className="button primary">Kategoriya: {ad.sort}</div>
                   </li>
                   <li>
@@ -60,7 +57,7 @@ function AdScreen(props) {
                   </li>
                   <li>
                     <div className="button primary">
-                      Quriish turi: {ad.buildingType}
+                      Qurilish turi: {ad.buildingType}
                     </div>
                   </li>
                   <li>
@@ -83,7 +80,7 @@ function AdScreen(props) {
                   <li>
                     {ad.withFurniture ? (
                       <div className="button primary">
-                        mebelli: {ad.withFurniture}
+                        Mebel: {ad.withFurniture}
                       </div>
                     ) : (
                       ""
@@ -107,7 +104,7 @@ function AdScreen(props) {
                       ""
                     )}
                   </li>
-                  
+
                   <li>
                     <div className="button primary">Ta'miri: {ad.repairs}</div>
                   </li>
@@ -127,7 +124,7 @@ function AdScreen(props) {
                   </li>
                   <li>
                     <div className="button primary">
-                      Maydoni: {ad.area} m.kv
+                      Maydoni: {ad.area + 'm.kv'} 
                     </div>
                   </li>
                   <li>
@@ -142,8 +139,8 @@ function AdScreen(props) {
               <div className="details-action">
                 <ul>
                   <li>Avtor: {ad.author}</li>
-                  <li>Tel: {ad.phoneNumber}</li>
-                  <li>Narx: {ad.price}</li>
+                  <li>Tel: {'+998 ' +  ad.phoneNumber}</li>
+                  <li>Narx: {ad.price + 'so\'m'}</li>
                 </ul>
               </div>
             </div>
