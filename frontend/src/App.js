@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 import Zoom from "react-reveal/Zoom";
 import RegisterScreen from "./screens/RegisterScreen";
 import AdsScreen from "./screens/AdsScreen";
+import ProfileScreen from "./screens/ProfileScreen";
 
 
 function App() {
@@ -59,6 +60,7 @@ function App() {
             <Route path="/register" component={RegisterScreen} />
             <Route path="/signin" component={SigninScreen} />
             <Route path="/ads" component={AdsScreen} />
+            <Route path="/profile" component={ProfileScreen} />
             <Route path="/" exact={true} component={HomeScreen} />
             <Route path="/ad/:id" component={AdScreen} />
           </div>

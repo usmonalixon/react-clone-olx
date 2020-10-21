@@ -8,6 +8,9 @@ router.get("/", async (req, res) => {
   const ads = await Ad.find({});
   res.send(ads);
 });
+router.get("/mine", isAuth, async (req, res) => {
+  const ads = await Ad.find({ user: req.user._id });
+});
 router.get("/:id", async (req, res) => {
   const ad = await Ad.findOne({ _id: req.params.id });
   if (ad) {
@@ -17,8 +20,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-
-router.post("/",isAuth, async (req, res) => {
+router.post("/", isAuth, async (req, res) => {
   const ad = new Ad({
     name: req.body.name,
     image: req.body.image,
@@ -54,7 +56,7 @@ router.post("/",isAuth, async (req, res) => {
     .send({ message: "E'lonni yaratishlikda xatolik yuz berdi." });
 });
 
-router.put("/:id",isAuth, async (req, res) => {
+router.put("/:id", isAuth, async (req, res) => {
   const adId = req.params.id;
   const ad = await Ad.findById(adId);
   if (ad) {
@@ -92,7 +94,7 @@ router.put("/:id",isAuth, async (req, res) => {
     .send({ message: "E'lonni o'zgartirishlikda xatolik yuz berdi." });
 });
 
-router.delete("/:id",isAuth, async (req, res) => {
+router.delete("/:id", isAuth, async (req, res) => {
   const deletedAd = await Ad.findById(req.params.id);
   if (deletedAd) {
     await deletedAd.remove();
