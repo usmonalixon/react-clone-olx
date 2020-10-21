@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 import Zoom from "react-reveal/Zoom";
 import RegisterScreen from "./screens/RegisterScreen";
 import AdsScreen from "./screens/AdsScreen";
+import ProfileScreen from "./screens/ProfileScreen";
 
 
 function App() {
@@ -46,11 +47,10 @@ function App() {
           </button>
           <ul className="categories">
             <li>
-              <Link to="/category/Pants">Pants</Link>
+              <Link to="/category/1-Xonalik">1-Xonalik</Link>
             </li>
-
             <li>
-              <Link to="/category/Shirts">Shirts</Link>
+              <Link to="/category/2-Xonalik">2-Xonalik</Link>
             </li>
           </ul>
         </aside>
@@ -59,8 +59,10 @@ function App() {
             <Route path="/register" component={RegisterScreen} />
             <Route path="/signin" component={SigninScreen} />
             <Route path="/ads" component={AdsScreen} />
+            <Route path="/profile" component={ProfileScreen} />
             <Route path="/" exact={true} component={HomeScreen} />
             <Route path="/ad/:id" component={AdScreen} />
+            <Route path="/category/:id" component={HomeScreen} />
           </div>
         </main>
         <footer className="footer">

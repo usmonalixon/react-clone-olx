@@ -12,4 +12,4 @@ export const AD_SAVE_FAIL = 'AD_SAVE_FAIL'
 
 export const AD_DELETE_REQUEST = 'AD_DELETE_REQUEST';
 export const AD_DELETE_SUCCESS = 'AD_DELETE_SUCCESS';
-export const AD_DELETE_FAIL = 'AD_DELETE_FAIL'
+export const AD_DELETE_FAIL = 'AD_DELETE_FAIL';
