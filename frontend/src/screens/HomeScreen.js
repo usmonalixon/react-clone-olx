@@ -41,7 +41,7 @@ function HomeScreen(props) {
       <li>
         Sort By {' '}
         <select name="sortOrder" onChange={sortHandler}>
-          <option value="">Eng yangisi</option>
+          <option value="">Eng Yangilari</option>
           <option value="lowest">Eng arzonlari</option>
           <option value="highest">Eng qimmatlari</option>
         </select>
