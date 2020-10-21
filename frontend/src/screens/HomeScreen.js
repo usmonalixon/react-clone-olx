@@ -11,12 +11,12 @@ function HomeScreen(props) {
   const { ads, loading, error } = adList;
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(listAds());
+    dispatch(listAds(category));
 
     return () => {
       //
     };
-  }, []);
+  }, [category]);
 
   const submitHandler = (e) => {
     e.preventDefault();

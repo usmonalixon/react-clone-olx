@@ -12,15 +12,21 @@ import {
   AD_DELETE_REQUEST,
   AD_DELETE_SUCCESS,
   AD_DELETE_FAIL,
-  MY_AD_LIST_REQUEST,
-  MY_AD_LIST_SUCCESS,
-  MY_AD_LIST_FAIL,
 } from "../constants/adConstants";
 
-const listAds = () => async (dispatch) => {
+const listAds = (category = "", searchKeyword = "", sortAd = "") => async (
+  dispatch
+) => {
   try {
     dispatch({ type: AD_LIST_REQUEST });
-    const { data } = await Axios.get("/api/ads");
+    const { data } = await Axios.get(
+      "/api/ads?category=" +
+        category +
+        "&searchKeyword=" +
+        searchKeyword +
+        "&sortAd=" +
+        sortAd
+    );
     dispatch({ type: AD_LIST_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: AD_LIST_FAIL, payload: error.message });
@@ -68,9 +74,9 @@ const deleteAd = (adId) => async (dispatch, getState) => {
       userSignin: { userInfo },
     } = getState();
     dispatch({ type: AD_DELETE_REQUEST, payload: adId });
-    const { data } = await Axios.delete('/api/ads/' + adId, {
+    const { data } = await Axios.delete("/api/ads/" + adId, {
       headers: {
-        Authorization: 'Bearer ' + userInfo.token,
+        Authorization: "Bearer " + userInfo.token,
       },
     });
     dispatch({ type: AD_DELETE_SUCCESS, payload: data, success: true });

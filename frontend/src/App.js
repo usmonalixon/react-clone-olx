@@ -47,11 +47,10 @@ function App() {
           </button>
           <ul className="categories">
             <li>
-              <Link to="/category/Pants">Pants</Link>
+              <Link to="/category/1-Xonalik">1-Xonalik</Link>
             </li>
-
             <li>
-              <Link to="/category/Shirts">Shirts</Link>
+              <Link to="/category/2-Xonalik">2-Xonalik</Link>
             </li>
           </ul>
         </aside>
@@ -63,6 +62,7 @@ function App() {
             <Route path="/profile" component={ProfileScreen} />
             <Route path="/" exact={true} component={HomeScreen} />
             <Route path="/ad/:id" component={AdScreen} />
+            <Route path="/category/:id" component={HomeScreen} />
           </div>
         </main>
         <footer className="footer">

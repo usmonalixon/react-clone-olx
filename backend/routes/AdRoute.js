@@ -5,7 +5,21 @@ import Ad from "../models/adModel";
 const router = express.Router();
 
 router.get("/", async (req, res) => {
-  const ads = await Ad.find({});
+  const category = req.query.category ? { category: req.query.category } : {};
+  const searchKeyword = req.query.searchKeyword
+    ? {
+        name: {
+          $regex: req.query.searchKeyword,
+          $options: 'i',
+        },
+      }
+    : {};
+  const sortAd = req.query.sortAd
+    ? req.query.sortAd === 'lowest'
+      ? { price: 1 }
+      : { price: -1 }
+    : { _id: -1 };
+  const ads = await Ad.find({...category, ...searchKeyword}).sort(sortAd);
   res.send(ads);
 });
 router.get("/mine", isAuth, async (req, res) => {
