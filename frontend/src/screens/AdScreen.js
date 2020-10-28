@@ -10,7 +10,6 @@ function AdScreen(props) {
   const { ad, loading, error } = adDetails;
   const dispatch = useDispatch();
   const userSignin = useSelector((state) => state.userSignin);
-  const { userInfo } = userSignin;
   useEffect(() => {
     dispatch(detailsAd(props.match.params.id));
     return () => {
@@ -29,7 +28,7 @@ function AdScreen(props) {
             </Link>
           </button>
           {loading ? (
-            <div>Loading...</div>
+            <div>Yuklanmoqda...</div>
           ) : error ? (
             <div>{error}</div>
           ) : (
@@ -44,6 +43,9 @@ function AdScreen(props) {
                   </li>
                   <li>
                     <div className="button primary">Kategoriya: {ad.sort}</div>
+                  </li>
+                  <li>
+                    <div className="button primary">Region {ad.region}</div>
                   </li>
                   <li>
                     <div className="button primary">

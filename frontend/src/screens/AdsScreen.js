@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Bounce from "react-reveal/Bounce";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteAd, listAds, saveAd } from "../actions/adActions";
+import $ from 'jquery';
 
 function AdsScreen(props) {
   const [modalVisible, setModalVisible] = useState(false);
@@ -27,6 +28,7 @@ function AdsScreen(props) {
   const [author, setAuthor] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
+  const [region, setRegion] = useState("");
   const adList = useSelector((state) => state.adList);
   const { loading, ads, error } = adList;
 
@@ -43,7 +45,6 @@ function AdsScreen(props) {
     success: successSave,
     error: errorSave,
   } = adSave;
-
 
   const dispatch = useDispatch();
 
@@ -62,6 +63,7 @@ function AdsScreen(props) {
     setId(ad._id);
     setName(ad.name);
     setImage(ad.image);
+    setRegion(ad.region);
     setSort(ad.sort);
     setSanuzel(ad.sanuzel);
     setHouseStorey(ad.houseStorey);
@@ -109,12 +111,14 @@ function AdsScreen(props) {
         author,
         description,
         price,
+        region,
       })
     );
   };
-  const deleteHandler = (ad) =>{
-    dispatch(deleteAd(ad._id))
-  }
+  const deleteHandler = (ad) => {
+    dispatch(deleteAd(ad._id));
+  };
+
   return (
     <Bounce right cascade>
       <div className="content content-margined">
@@ -131,7 +135,7 @@ function AdsScreen(props) {
                   <h2>E'lon berish</h2>
                 </li>
                 <li>
-                  {loadingSave && <div>Loading...</div>}
+                  {loadingSave && <div>Yuklanmoqda...</div>}
                   {errorSave && <div>{errorSave}</div>}
                 </li>
                 <li>
@@ -364,6 +368,18 @@ function AdsScreen(props) {
                   ></input>
                 </li>
                 <li>
+                  <label htmlFor="region">
+                    Region <i className="fa fa-asterisk color"></i>
+                  </label>
+                  <select
+                    value={region}
+                    type="text"
+                    name="region"
+                    id="region"
+                    onChange={(e) => setRegion(e.target.value)}
+                  ><option></option><option>Mirzo Ulug'bek</option></select>
+                </li>
+                <li>
                   <label htmlFor="category">
                     Kategoriya <i className="fa fa-asterisk color"></i>{" "}
                   </label>
@@ -446,7 +462,10 @@ function AdsScreen(props) {
                     >
                       O'zgartirmoq
                     </button>
-                    <button onClick={()=> deleteHandler(ad)} className="button margin-left primary">
+                    <button
+                      onClick={() => deleteHandler(ad)}
+                      className="button margin-left primary"
+                    >
                       O'chirmoq
                     </button>
                   </td>

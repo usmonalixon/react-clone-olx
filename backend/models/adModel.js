@@ -12,7 +12,7 @@ const adSchema = mongoose.Schema({
   builtAt: { type: String, required: false },
   withFurniture: { type: String, default: "Bor", required: false },
   roomHeight: { type: String, required: false },
-  
+  region: {type: String, required: true },
   phoneNumber: { type: String, required: true },
   repairs: { type: String, default:"Ta'mir talab", required: true, },
   nearBy: { type: String, required: false },

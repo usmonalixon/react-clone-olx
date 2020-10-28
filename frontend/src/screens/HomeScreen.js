@@ -4,9 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { listAds } from "../actions/adActions";
 
 function HomeScreen(props) {
-  const [searchKeyword, setSearchKeyword] = useState("");
-  const [sortAd, setSortAd] = useState("");
-  const category = props.match.params.id || "";
+  const [searchKeyword, setSearchKeyword] = useState('');
+  const [sortAd, setSortAd] = useState('');
+  const category = props.match.params.id ? props.match.params.id : '';
   const adList = useSelector((state) => state.adList);
   const { ads, loading, error } = adList;
   const dispatch = useDispatch();
@@ -28,22 +28,30 @@ function HomeScreen(props) {
   };
   return (
     <>
-    {category &&
-      <h2>{category}</h2>}
-
     <ul className="filter">
-      <li>
+      <li className="search">
         <form onSubmit={submitHandler}>
           <input name="searchKeyword" onChange={(e) => setSearchKeyword(e.target.value)} />
-          <button type="submit"><i class="fas fa-search"></i></button>
+          <button type="submit"><i className="fas fa-search"></i></button>
         </form>
       </li>
-      <li>
-        Sort By {' '}
-        <select name="sortOrder" onChange={sortHandler}>
+      <li className="sort-by">
+        <span></span> {' '}
+        <select name="sortAd" className="sort-by" onChange={sortHandler}>
           <option value="">Eng Yangilari</option>
-          <option value="lowest">Eng arzonlari</option>
-          <option value="highest">Eng qimmatlari</option>
+          <option value="lowest">Eng Qimmatlari</option>
+          <option value="highest">Eng Arzonlari</option>
+        </select>
+        <select className="sort-by region">
+          <option>Mirzo Ulug'bek</option>
+          <option>Sergeli</option>
+          <option>Olmazor</option>
+          <option>Chilonzor</option>
+          <option>Bektemir</option>
+          <option>Yashnobod</option>
+          <option>Yakkasaroy</option>
+          <option>Yunusobod</option>
+          <option>Tashkent City</option>
         </select>
       </li>
     </ul>

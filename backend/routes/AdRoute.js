@@ -18,7 +18,7 @@ router.get("/", async (req, res) => {
     ? req.query.sortAd === 'lowest'
       ? { price: 1 }
       : { price: -1 }
-    : { _id: -1 };
+    : { _id: -1 } ;
   const ads = await Ad.find({...category, ...searchKeyword}).sort(sortAd);
   res.send(ads);
 });
@@ -47,6 +47,7 @@ router.post("/", isAuth, async (req, res) => {
     plan: req.body.plan,
     withFurniture: req.body.withFurniture,
     repairs: req.body.repairs,
+    region: req.body.region,
     nearBy: req.body.nearBy,
     area: req.body.area,
     fee: req.body.fee,
@@ -86,6 +87,7 @@ router.put("/:id", isAuth, async (req, res) => {
     ad.withFurniture = req.body.withFurniture;
     ad.repairs = req.body.repairs;
     ad.nearBy = req.body.nearBy;
+    ad.region = req.body.region;
     ad.area = req.body.area;
     ad.fee = req.body.fee;
     ad.buildingType = req.body.buildingType;
