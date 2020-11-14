@@ -76,18 +76,10 @@ function DropdownMenu() {
         onEnter={calcHeight}
       >
         <div className="menu">
-          <DropdownItem
-            leftIcon={<HouseKeyIcon />}
-            rightIcon={<ChevronIcon />}
-            goToMenu="ko'chmasmulk"
-          >
+          <DropdownItem leftIcon={<HouseKeyIcon />} goToMenu="ko'chmasmulk">
             Ko'chmas mulk
           </DropdownItem>
-          <DropdownItem
-            leftIcon={<CarKeyIcon />}
-            rightIcon={<ChevronIcon />}
-            goToMenu="moshinalar"
-          >
+          <DropdownItem leftIcon={<CarKeyIcon />} goToMenu="moshinalar">
             Avtomobillar
           </DropdownItem>
           <DropdownItem className="margin-top" leftIcon={<PhoneIcon />}>
@@ -237,7 +229,7 @@ function DropdownMenu() {
         <DropdownItem goToMenu="ko'chmasmulk" leftIcon={<ArrowIcon />}>
           <h3>Ko'chmas mulk sotmoq</h3>
         </DropdownItem>
-        <div  className="menu">
+        <div className="menu">
           <DropdownItem leftIcon={<HouseKeyIcon />}>Kvartiralar</DropdownItem>
           <DropdownItem leftIcon={<HouseIcon />}>Uchastok</DropdownItem>
           <DropdownItem leftIcon={<StoreIcon />}>

@@ -10,16 +10,16 @@ router.get("/", async (req, res) => {
     ? {
         name: {
           $regex: req.query.searchKeyword,
-          $options: 'i',
+          $options: "i",
         },
       }
     : {};
   const sortAd = req.query.sortAd
-    ? req.query.sortAd === 'lowest'
+    ? req.query.sortAd === "lowest"
       ? { price: 1 }
       : { price: -1 }
-    : { _id: -1 } ;
-  const ads = await Ad.find({...category, ...searchKeyword}).sort(sortAd);
+    : { _id: -1 };
+  const ads = await Ad.find({ ...category, ...searchKeyword }).sort(sortAd);
   res.send(ads);
 });
 router.get("/mine", isAuth, async (req, res) => {
@@ -38,6 +38,14 @@ router.post("/", isAuth, async (req, res) => {
   const ad = new Ad({
     name: req.body.name,
     image: req.body.image,
+    image1: req.body.image1,
+    image2: req.body.image2,
+    image3: req.body.image3,
+    image4: req.body.image4,
+    image5: req.body.image5,
+    image6: req.body.image6,
+    image7: req.body.image7,
+    image8: req.body.image8,
     sort: req.body.sort,
     phoneNumber: req.body.phoneNumber,
     countRooms: req.body.countRooms,
@@ -47,7 +55,9 @@ router.post("/", isAuth, async (req, res) => {
     plan: req.body.plan,
     withFurniture: req.body.withFurniture,
     repairs: req.body.repairs,
+    rank: req.body.rank,
     region: req.body.region,
+    liveArea: req.body.liveArea,
     nearBy: req.body.nearBy,
     area: req.body.area,
     fee: req.body.fee,
@@ -77,6 +87,14 @@ router.put("/:id", isAuth, async (req, res) => {
   if (ad) {
     ad.name = req.body.name;
     ad.image = req.body.image;
+    ad.image1 = req.body.image1;
+    ad.image2 = req.body.image2;
+    ad.image3 = req.body.image3;
+    ad.image4 = req.body.image4;
+    ad.image5 = req.body.image5;
+    ad.image6 = req.body.image6;
+    ad.image7 = req.body.image7;
+    ad.image8 = req.body.image8;
     ad.sort = req.body.sort;
     ad.phoneNumber = req.body.phoneNumber;
     ad.countRooms = req.body.countRooms;
@@ -88,7 +106,9 @@ router.put("/:id", isAuth, async (req, res) => {
     ad.repairs = req.body.repairs;
     ad.nearBy = req.body.nearBy;
     ad.region = req.body.region;
+    ad.liveArea = req.body.liveArea;
     ad.area = req.body.area;
+    ad.rank = req.body.rank;
     ad.fee = req.body.fee;
     ad.buildingType = req.body.buildingType;
     ad.roomHeight = req.body.roomHeight;

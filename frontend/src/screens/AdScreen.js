@@ -4,18 +4,42 @@ import Fade from "react-reveal/Fade";
 import Zoom from "react-reveal/Zoom";
 import { detailsAd } from "../actions/adActions";
 import { useDispatch, useSelector } from "react-redux";
+import $ from "jquery";
 
 function AdScreen(props) {
+  $(function () {
+    $("#slideLeft").on("click", function () {
+      // document.querySelector("#slider").scrollLeft -= 180;
+      $("#slider").scrollLeft(-180);
+    });
+    $("#slideRight").on("click", function () {
+      // document.querySelector("#slider").scrollLeft += 180;
+      $("#slider").scrollLeft(+180);
+    });
+  });
+  window.document.addEventListener("mouseover", function () {
+    const thumbnails = document.getElementsByClassName("thumbnail");
+    const activeImages = document.getElementsByClassName("active");
+    for (let i = 0; i < thumbnails.length; i++) {
+      thumbnails[i].addEventListener("mouseover", function () {
+        if (activeImages.length > 0) {
+          activeImages[0].classList.remove("active");
+          this.classList.add("active");
+          document.querySelector("#featured").src = this.src;
+        }
+      });
+    }
+  });
+
   const adDetails = useSelector((state) => state.adDetails);
   const { ad, loading, error } = adDetails;
   const dispatch = useDispatch();
-  const userSignin = useSelector((state) => state.userSignin);
   useEffect(() => {
     dispatch(detailsAd(props.match.params.id));
     return () => {
       //
     };
-  }, []);
+  }, [dispatch, props.match.params.id]);
   return (
     <div>
       <Fade cascade top>
@@ -34,8 +58,44 @@ function AdScreen(props) {
           ) : (
             <div className="details">
               <div className="details-image">
-                <img src={ad.image} alt="ad"></img>
+                <img
+                  id="featured"
+                  className="image"
+                  src={ad.image}
+                  data-zoom={ad.image}
+                  alt="ad"
+                ></img>
               </div>
+              <div id="slide-wrapper">
+                <img
+                  id="slideLeft"
+                  className="arrow"
+                  src="/images/arrow-left.png"
+                ></img>
+                <div id="slider">
+                  <img className="thumbnail active" src={ad.image}></img>
+                  <img
+                    className="thumbnail"
+                    src="/images/d4.jpg"
+                    alt="ad"
+                  ></img>
+                  <img className="thumbnail" src="/images/d5.jpg"></img>
+                  <img className="thumbnail" src="/images/d6.jpg"></img>
+                  <img
+                    className="thumbnail"
+                    src="/images/d7.jpg"
+                    alt="ad"
+                  ></img>
+                  <img className="thumbnail" src="/images/d8.jpg"></img>
+                  <img className="thumbnail" src="/images/d9.jpg"></img>
+                </div>
+                <img
+                  id="slideRight"
+                  className="arrow"
+                  src="/images/arrow-right.png"
+                ></img>
+              </div>
+
               <div className="details-info">
                 <ul>
                   <li>
@@ -126,7 +186,7 @@ function AdScreen(props) {
                   </li>
                   <li>
                     <div className="button primary">
-                      Maydoni: {ad.area + 'm.kv'} 
+                      Maydoni: {ad.area + "m.kv"}
                     </div>
                   </li>
                   <li>
@@ -141,15 +201,16 @@ function AdScreen(props) {
               <div className="details-action">
                 <ul>
                   <li>Avtor: {ad.author}</li>
-                  <li>Tel: {'+998 ' +  ad.phoneNumber}</li>
-                  <li>Narx: {ad.price + 'so\'m'}</li>
+                  <li>Tel: {ad.phoneNumber}</li>
+                  <li>Narx: {ad.price + "so'm"}</li>
                 </ul>
               </div>
             </div>
           )}
         </Zoom>
-      </Fade>
+      </Fade>{" "}
     </div>
   );
 }
+
 export default AdScreen;

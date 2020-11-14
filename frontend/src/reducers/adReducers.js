@@ -11,9 +11,6 @@ import {
   AD_SAVE_FAIL,
   AD_SAVE_REQUEST,
   AD_SAVE_SUCCESS,
-  MY_AD_LIST_FAIL,
-  MY_AD_LIST_REQUEST,
-  MY_AD_LIST_SUCCESS,
 } from "../constants/adConstants";
 
 function adListReducer(state = { ads: [] }, action) {

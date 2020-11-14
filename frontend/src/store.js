@@ -3,6 +3,7 @@ import thunk from "redux-thunk";
 import { adDeleteReducer, adDetailsReducer, adListReducer, adSaveReducer } from "./reducers/adReducers";
 import { userRegisterReducer, userSigninReducer, userUpdateReducer } from "./reducers/userReducers";
 import Cookie from "js-cookie";
+import { autoDeleteReducer, autoDetailsReducer, autoListReducer, autoSaveReducer } from "./reducers/autoReducers";
 
 const userInfo = Cookie.getJSON("userInfo") || null;
 
@@ -15,6 +16,10 @@ const reducer = combineReducers({
   adSave: adSaveReducer,
   adDelete: adDeleteReducer,
   userUpdate: userUpdateReducer,
+  autoSave: autoSaveReducer,
+  autoList:  autoListReducer,
+  autoDetails: autoDetailsReducer,
+  autoDelete: autoDeleteReducer,
 });
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(

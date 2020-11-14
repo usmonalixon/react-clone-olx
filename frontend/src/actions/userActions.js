@@ -10,10 +10,7 @@ import {
   USER_LOGOUT,
   USER_UPDATE_REQUEST,
   USER_UPDATE_SUCCESS,
-  USER_UPDATE_FAIL,
-  MY_AD_LIST_SUCCESS,
-  MY_AD_LIST_FAIL,
-  MY_AD_LIST_REQUEST,
+  USER_UPDATE_FAIL
 } from "../constants/userConstants";
 
 const update = ({ userId, name, email, password }) => async (

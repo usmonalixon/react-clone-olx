@@ -8,17 +8,21 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.19.2",
+    "drift-zoom": "^1.4.1",
     "jquery": "^3.5.1",
     "js-cookie": "^2.2.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-inner-image-zoom": "^1.1.1",
     "react-modal": "^3.11.2",
     "react-redux": "^7.2.1",
     "react-reveal": "^1.2.2",
+    "react-script-tag": "^1.1.2",
     "react-scripts": "3.4.3",
     "react-transition-group": "^4.4.1",
     "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "zoom": "0.0.2"
   },
   "scripts": {
     "start": "react-scripts start",

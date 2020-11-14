@@ -23,7 +23,7 @@ function RegisterScreen(props) {
     return () => {
       //
     };
-  }, [userInfo]);
+  }, [userInfo, props.history, success]);
 
   const submitHandler = (e) => {
     e.preventDefault();
